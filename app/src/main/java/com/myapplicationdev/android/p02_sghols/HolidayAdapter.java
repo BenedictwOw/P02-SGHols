@@ -25,11 +25,13 @@ public class HolidayAdapter extends ArrayAdapter<Holidays> {
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
+        Holidays currentHoliday = h.get(position);
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.row, parent, false);
         tvHol = (TextView)rowView.findViewById(R.id.tvHoliday);
-        Holidays currentHoliday = h.get(position);
+
+
         tvHol.setText(currentHoliday.getName());
         return rowView;
     }

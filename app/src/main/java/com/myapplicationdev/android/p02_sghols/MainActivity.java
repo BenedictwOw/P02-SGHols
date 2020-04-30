@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
         lv = (ListView)this.findViewById(R.id.lv1);
         holidays = new ArrayList<Holidays>();
 
-        holidays.add(new Holidays("Secular"));
-        holidays.add(new Holidays("Ethnic and Religion"));
+        holidays.add(new Holidays("Secular",true));
+        holidays.add(new Holidays("Ethnic and Religion",false));
 
         aa = new HolidayAdapter(this,R.layout.row,holidays);
         lv.setAdapter(aa);
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Holidays selectedHoliday = holidays.get(position);
-                String[] info = {selectedHoliday.getName()};
+                String info = selectedHoliday.getName();
                 Intent i = new Intent(MainActivity.this,MainActivity2.class);
                 i.putExtra("info",info);
                 startActivity(i);
